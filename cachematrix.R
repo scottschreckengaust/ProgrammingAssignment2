@@ -34,3 +34,23 @@ cacheSolve <- function(x, ...) {
         x$setsolve(m)
         m
 }
+
+#TEST CASE: 
+# > y <- matrix(data=c(3,3.5,3.2,3.6),nrow=2,ncol=2)
+# > mmm <- makeCacheMatrix(y)
+# > mmm$get()
+#      [,1] [,2]
+# [1,]  3.0  3.2
+# [2,]  3.5  3.6
+# # First call computes.
+# > cacheSolve(mmm)
+#       [,1] [,2]
+# [1,] -9.00  8.0
+# [2,]  8.75 -7.5
+
+# # Second and subsequent call pulls from the cache.
+# > cacheSolve(mmm)
+# getting cached data
+#       [,1] [,2]
+# [1,] -9.00  8.0
+# [2,]  8.75 -7.5
